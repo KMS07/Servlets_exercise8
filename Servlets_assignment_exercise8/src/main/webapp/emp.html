@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Emp Details</title>
+</head>
+<body>
+	<h1>Employee Details</h1>
+	<form onsubmit = "validate()"  method = "get" action="empserver">
+		Employee Id: &nbsp;
+		<input type="number" name = "eid" id="eid" ><br><br>
+		Employee Name:
+		<input type="text" name ="ename" id="ename" ><br><br>
+		Job Title: &nbsp;
+		<input type="text" name ="job" id="job" ><br><br>
+		Join Date:&nbsp;  
+		<input type="date" name ="jdate" id="jdate" ><br><br>
+		Date of Birth:&nbsp;
+		<input type="date" name="bdate" id="bdate" ><br><br>
+		Salary:&nbsp;
+		<input type="number" name ="sal" id="sal" ><br><br>
+		Department Id:&nbsp;
+		<input type="number" name="deptId" id="deptId" ><br><br>
+		<input type="submit" id ="submit" value="submit">
+	</form>
+	
+	
+	<script>
+		function validate(){
+			var empId = document.getElementById("eid").value;
+			var empName = document.getElementById("ename").value;
+			var empJob = document.getElementById("job").value;
+			var empJoin = document.getElementById("jdate").value;
+			var empBday = document.getElementById("bdate").value;
+			var empSal = document.getElementById("sal").value;
+			var deptId = document.getElementById("deptId").value;
+			if(empId != "" && empName != "" && empJob != "" && empJoin != "" && empBday != "" && empSal != "" && deptId != ""){
+				let x = "/^[0-9]+$/";
+				if(!x.test(empId)){
+					alert("Employee id should be a positive integer");
+					return false;
+				}
+				if(!x.test(depId)){
+					alert("Employee id should be a positive integer");
+					return false;
+				}
+				return true;
+			}else{
+				if(empId == ""){
+					alert("Please enter employee id");
+				}
+				else if(empName == ""){
+					alert("Please enter employee name");
+				}
+				else if(empJob == ""){
+					alert("Please enter Job title");
+				}
+				else if(empJoin == ""){
+					alert("Please enter joining date");
+				}
+				else if(empBday == ""){
+					alert("Please enter date of birth");
+				}
+				else if(empSal == ""){
+					alert("Please enter salary");
+				}
+				else if(deptId == ""){
+					alert("please enter department Id");
+				}
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

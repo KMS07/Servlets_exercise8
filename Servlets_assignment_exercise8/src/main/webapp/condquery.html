@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Query</title>
+</head>
+<body>
+	<h1 >Enter Details</h1>
+	<form onsubmit="return validate()" method="get" action="query">
+		Joining Date:&nbsp;  &nbsp;&nbsp;<input type="date" id="date" name="date" value=""><br><br>
+		Age:&nbsp;  &nbsp; &nbsp;<input type="number" id="age" name="age" ><br><br>
+		<input type="submit" value="Submit" name="submit" >
+	</form>
+	
+	<script>
+		function validate(){
+			var date = document.getElementById("date").value;
+			var age = document.getElementById("age").value;
+			if(date != "" && age != ""){
+				let x = "/^[0-9]+$/";
+				if(!x.test(age)){
+					alert("Age should be a number");
+					return false;
+				}
+				return true;
+			}else{
+				if(date == ""){
+					alert("Enter the date");
+				}
+				if(age == ""){
+					alert("Please enter age");
+				}
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
